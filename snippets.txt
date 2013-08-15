@@ -1,0 +1,202 @@
+LESS SNIPPETS
+
+/////////////////////////////////
+// styles.less
+/////////////////////////////////
+
+/*Here we are importing all the less files*/
+
+//helpers
+@import "variables.less";
+
+//import modules
+@import "base.less";
+@import "layout.less";
+@import "nav.less";
+
+
+/////////////////////////////////
+// end styles.less
+/////////////////////////////////
+
+/////////////////////////////////
+// variables.less
+/////////////////////////////////
+
+/*We are establishing all the variables for the site*/
+//layout sizes
+@fullLayoutWidth: 960px;
+@pageBottomLayout: 85%;
+
+//theme styles
+@whiteText: #FFFFFF;
+@linkBaseColor: #6d6359;
+
+
+
+/////////////////////////////////
+// end variables.less
+/////////////////////////////////
+
+/////////////////////////////////
+// nav.less
+/////////////////////////////////
+
+/*styling the navigation*/
+nav {
+	width: @fullLayoutWidth;	
+	
+	a {
+		display: inline-block;
+		padding: 30px 30px;
+		
+		&:hover{
+            //background-color: #FF0000 ;
+        }
+        
+        &:active{
+            background-color: #6c563f ;
+            color: @whiteText;
+        }
+	}
+}
+
+/////////////////////////////////
+// end nav.less
+/////////////////////////////////
+
+/////////////////////////////////
+// base.less
+/////////////////////////////////
+
+/*I like to clear all margins but the bottom.*/ 
+* {
+	margin-top: 0;
+  	margin-left: 0;
+  	margin-right: 0;
+}
+
+/*Here we are doing a reset of certain elements*/
+html, body {
+	content: "";
+  	clear: both;
+  	display: block;
+  	*zoom: 1;
+}
+
+/*We are making sure we have a sans serif font and adding a background image that repeats*/
+body {
+	background: repeat url('../images/full_bg.jpg');
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/*these classes are used to clear floats and reset the div to block*/
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+  line-height: 0;
+}
+
+/*setting default link theme*/
+a {
+	color: @linkBaseColor;
+	text-decoration: none;
+}
+
+/////////////////////////////////
+// end base.less
+/////////////////////////////////
+
+/////////////////////////////////
+// layout.less
+/////////////////////////////////
+
+/*this is the container that wraps everything on the site*/
+#container {
+	position: relative;
+	background-color: fadeout(#FFFFFF, 45%);
+	//we need to specify the max width and not just width. this will make it responsive
+	max-width: @fullLayoutWidth;
+	margin: 0 auto;
+}
+
+/*here we are setting the background image of the header and changing it depending on the size of the screen resolution*/
+header {
+	border: 
+	position: relative;
+	background-image: url('../images/headerImage.jpg');
+	background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100%;
+	height: 300px;
+	max-width: 960px;
+	
+	@media only screen and (max-device-width : 800px), only screen and (max-width : 800px){
+		height: 250px;
+	}
+	
+	@media only screen and (max-device-width : 640px), only screen and (max-width : 640px){
+		height: 250px;
+		background-image: url('../images/header640.jpg');
+	}
+	
+	@media only screen and (max-device-width : 500px), only screen and (max-width : 500px){
+		height: 180px;
+		background-image: url('../images/header500.jpg');
+	}
+}
+
+/*this area controls the bottom half of the page*/
+#pageBottomContent {
+	position: relative;
+	max-width: @pageBottomLayout;
+	margin: 5% auto 30px auto;
+	
+	#imageGallery {
+		margin-top: 40px;
+		
+		section {
+			float: left;
+			max-width: 247px;
+			padding-left:18px;
+			
+			p {
+				font-size: 80%;
+				text-align: left;
+				
+			}
+		}		
+	}
+	
+	@media only screen and (max-device-width : 960px), only screen and (max-width : 960px){
+		#imageGallery {
+			max-width: 247px;
+			margin: 60px auto 0 auto;
+			
+			section {
+				float: none;
+				padding-left:0px;
+				
+				p {
+					font-size: 80%;
+					text-align: left;
+				}
+			}		
+		}
+	} 
+}
+
+/*this is the footer styling*/
+footer {
+	text-align: center;
+	font-size: 80%;
+	padding-bottom: 10px;
+}
+
+/////////////////////////////////
+// end layout.less
+/////////////////////////////////
+
+

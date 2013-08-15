@@ -1,0 +1,81 @@
+/*this is the container that wraps everything on the site*/
+#container {
+  position: relative;
+  background-color: fadeout(#FFFFFF, 45%);
+  //we need to specify the max width and not just width. this will make it responsive
+  max-width: @fullLayoutWidth;
+  margin: 0 auto;
+}
+
+/*here we are setting the background image of the header and changing it depending on the size of the screen resolution*/
+header {
+  border:
+    position: relative;
+  background-image: url('../images/headerImage.jpg');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100%;
+  height: 300px;
+  max-width: 960px;
+
+  @media only screen and (max-device-width : 800px), only screen and (max-width : 800px){
+    height: 250px;
+  }
+
+  @media only screen and (max-device-width : 640px), only screen and (max-width : 640px){
+    height: 250px;
+    background-image: url('../images/header640.jpg');
+  }
+
+  @media only screen and (max-device-width : 500px), only screen and (max-width : 500px){
+    height: 180px;
+    background-image: url('../images/header500.jpg');
+  }
+}
+
+/*this area controls the bottom half of the page*/
+#pageBottomContent {
+  position: relative;
+  max-width: @pageBottomLayout;
+  margin: 5% auto 30px auto;
+
+  #imageGallery {
+    margin-top: 40px;
+
+    section {
+      float: left;
+      max-width: 247px;
+      padding-left:18px;
+
+      p {
+        font-size: 80%;
+        text-align: left;
+
+      }
+    }
+  }
+
+  @media only screen and (max-device-width : 960px), only screen and (max-width : 960px){
+    #imageGallery {
+      max-width: 247px;
+      margin: 60px auto 0 auto;
+
+      section {
+        float: none;
+        padding-left:0px;
+
+        p {
+          font-size: 80%;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+/*this is the footer styling*/
+footer {
+  text-align: center;
+  font-size: 80%;
+  padding-bottom: 10px;
+}

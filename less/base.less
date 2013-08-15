@@ -1,0 +1,35 @@
+/*I like to clear all margins but the bottom.*/
+*{
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/*Here we are doing a reset of certain elements*/
+html, body {
+  content: "";
+  clear: both;
+  display: block;
+  *zoom: 1;
+}
+
+/*We are making sure we have a sans serif font and adding a background image that repeats*/
+body {
+  background: repeat url('../images/full_bg.jpg');
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*these classes are used to clear floats and reset the div to block*/
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+  line-height: 0;
+}
+
+/*setting default link theme*/
+a {
+  color: @linkBaseColor;
+  text-decoration: none;
+}
